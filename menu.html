@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu hamburger</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #ham {
+            color: #a77a33;
+        }
+
+        .first_navbar {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            background-color: #fff;
+            width: 100%;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .nav__wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 86px;
+        }
+
+        .nav__menu {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            column-gap: 30px;
+        }
+
+        .nav__main {
+            position: relative;
+            transition: all ease-in-out 0.4s;
+            z-index: 1;
+        }
+
+        .row__line {
+            position: absolute;
+            width: 0%;
+            height: 4px;
+            transition: all ease-in-out 0.4s;
+            background-color: #112267;
+            z-index: 2;
+        }
+
+        .nav__main:hover .row__line {
+            width: 100%;
+
+        }
+
+        .nav__link {
+            color: #112267;
+            font-family: 'Raleway';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 28px;
+        }
+
+        .search__wrap {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            column-gap: 72px;
+            padding: 14px 40px;
+            border-radius: 100px;
+            border: 1px solid #112267;
+            background-color: #FFF;
+            cursor: pointer;
+            width: 16%;
+        }
+
+        input[type="text"] {
+            border: 1px solid transparent;
+            color: #E0E0E0;
+            font-family: 'Raleway';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+            width: 48%;
+        }
+
+        .search__icon img {
+            width: 20px;
+        }
+
+
+
+        #ham {
+            color: #a77a33;
+        }
+
+        .navbar {
+            background-color: #333;
+            width: 25%;
+            height: 100vh;
+            display: none;
+        }
+
+        .navbar li:hover {
+            cursor: pointer;
+        }
+
+
+        .navbar li a {
+            color: #d3e3e3;
+            text-decoration: none;
+            font-family: 'ballinger';
+            font-size: 25.6px;
+            transition: all .5s;
+        }
+
+        /* .navbar li:hover {
+    cursor: pointer;
+    background-color: #ce3939;
+    letter-spacing: 10px;
+} */
+
+        .hamburger {
+            display: none;
+            margin: 0;
+            padding: 0;
+            float: left;
+            transition: opacity .3s;
+        }
+
+        .hamburger:hover {
+            cursor: pointer;
+            opacity: .5;
+        }
+
+        .hamburger .line {
+            width: 50px;
+            height: 5px;
+            background: rgb(236, 66, 66);
+            margin: 8px auto;
+            transition: all 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .hamburger .line:nth-child(1) {
+            background-color: #112267;
+        }
+
+        .hamburger .line:nth-child(2) {
+            background-color: #112267;
+        }
+
+        .hamburger .line:nth-child(3) {
+            background-color: #112267;
+        }
+
+        .hamburger.isactive .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.isactive .line:nth-child(1) {
+            transform: translateY(13px) rotate(45deg);
+        }
+
+        .hamburger.isactive .line:nth-child(3) {
+            transform: translateY(-13px) rotate(-45deg);
+        }
+
+        .navbar {
+            transition: all 2s ease-in-out;
+        }
+
+        .navbar.active {
+            display: block;
+            animation: fade .5s;
+        }
+
+        .hamburger-main {
+            position: absolute;
+            z-index: 99;
+            width: 100%;
+            top: 95px;
+        }
+
+
+        @keyframes fade {
+            from {
+                transform: translateX(-200px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 1360px) {
+            .navbar {
+                width: 30%;
+            }
+
+            .navbar ul {
+                padding-left: 0%;
+            }
+
+            .navbar li {
+                padding: 3% 0;
+            }
+
+            .navbar li a {
+                font-size: 19.2px;
+            }
+
+        }
+
+        @media screen and (max-width: 992px) {
+            .navbar {
+                background-color: #333;
+                width: 100%;
+                height: 100vh;
+                display: none;
+            }
+
+            .first_navbar {
+                padding-top: 24px;
+                padding-bottom: 24px;
+            }
+
+            .logo {
+                width: 265px;
+            }
+
+            .hamburger {
+                display: block;
+                margin-left: auto;
+            }
+
+            .container {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .nav__menu {
+                display: none;
+            }
+
+            .search__wrap {
+                width: 28%;
+                margin-right: -68px;
+                padding: 12px 30px;
+                width: 24%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                float: right;
+                margin-left: 20px;
+            }
+
+            .navbar {
+                background-color: #E0EAFF;
+                width: 100%;
+                height: 100vh;
+                display: none;
+            }
+
+            .navbar ul {
+                overflow: hidden;
+                list-style-type: none;
+                padding-top: 3%;
+                /* padding-left: 38%; */
+                padding-right: 14%;
+                padding-bottom: 3%;
+                margin: 0;
+                text-align: center;
+            }
+
+            .navbar li {
+                display: block;
+                margin: 0;
+                padding: 14px 20px;
+                width: 100%;
+                transition: background-color .5s;
+                margin-bottom: 20px;
+            }
+
+            /* .navbar li:hover {
+        cursor: pointer;
+        background-color: #ce3939;
+    } */
+
+
+            .navbar li a {
+                text-decoration: none;
+                padding: 14px 16px;
+                color: #112267;
+                font-family: 'Raleway';
+                font-size: 34px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 48px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                transition: all 1s;
+            }
+
+            /* .navbar li:hover {
+        cursor: pointer;
+        background-color: #ce3939;
+        letter-spacing: 0px;
+    } */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="first_navbar">
+            <div class="container">
+                <div class="nav__wrap">
+                    <a href="#">
+                        <div class="logo"><img src="image/logo.svg"></div>
+                    </a>
+                    <div class="nav__menu">
+                        <div class="nav__main">
+                            <a href="#" class="nav__link">Home</a>
+                            <div class="row__line"></div>
+                        </div>
+                        <div class="nav__main">
+                            <a href="#" class="nav__link">About Us</a>
+                            <div class="row__line"></div>
+                        </div>
+                        <div class="nav__main">
+                            <a href="#" class="nav__link">Breeds</a>
+                            <div class="row__line"></div>
+                        </div>
+                        <div class="nav__main">
+                            <a href="#" class="nav__link">Services</a>
+                            <div class="row__line"></div>
+                        </div>
+                        <div class="nav__main">
+                            <a href="#" class="nav__link">News</a>
+                            <div class="row__line"></div>
+                        </div>
+                        <div class="nav__main">
+                            <a href="#" class="nav__link">Contact Us</a>
+                            <div class="row__line"></div>
+                        </div>
+                    </div>
+                    <div class="search__wrap">
+                        <input type="text" placeholder="Search">
+                        <a href="javascript:;" class="search__icon"><img src="image/search.svg"></a>
+                    </div>
+                    <div class="hamburger">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="hamburger-main">
+            <menu class="navbar">
+                <ul>
+                    <li><a href="#"><b>Home</b></a></li>
+                    <li><a href="#"><b>About Us</b></a></li>
+                    <li><a href="#"><b>Breeds</b></a></li>
+                    <li><a href="#"><b>Services</b></a></li>
+                    <li><a href="#"><b>News</b></a></li>
+                    <li><a href="#"><b>Contact Us </b></a></li>
+                </ul>
+            </menu>
+        </div>
+    </header>
+    <script>
+        let hamburger = document.querySelector('.hamburger');
+        let menu = document.querySelector('.navbar');
+        let bod = document.querySelector('.container');
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('isactive');
+            menu.classList.toggle('active');
+
+        });
+    </script>
+</body>
+
+</html>
